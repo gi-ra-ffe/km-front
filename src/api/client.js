@@ -1,13 +1,7 @@
 import axios from 'axios';
 
 // ベースURLの設定（環境変数を優先して使用）
-// export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000'; // バックエンドAPIのベースURL
-const backendHost =
-    window.location.hostname === "localhost"
-        ? "http://localhost:8000"
-        : "http://54.199.172.106:8000";
-
-export const API_BASE_URL = backendHost;
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000'; // バックエンドAPIのベースURL
 
 // Axiosインスタンスを作成
 const apiClient = axios.create({
