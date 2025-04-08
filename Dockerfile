@@ -11,7 +11,12 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 # Copy the rest of your application files
-COPY build ./build
+# COPY build ./build
+
+# Reactアプリをビルド
+COPY . .
+RUN yarn build
+
 
 RUN yarn global add serve
 

@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaImage } from "react-icons/fa";
 import Datepicker from "react-tailwindcss-datepicker";
-import { API_BASE_URL } from "../../api/client";
 import { getCoordinate, postCoordinate, putCoordinate } from "../../api/coordinateAPI";
 import { getCoordinateItems, postCoordinateItems, putCoordinateItems } from "../../api/coordinate_itemsAPI";
 import { getAllItems } from "../../api/itemsAPI";
@@ -79,7 +78,7 @@ export default function ItemForm({ mode }) {
                     const data_coordinates = await getCoordinate(id);
                     setCoordFormData(data_coordinates);
                     if (data_coordinates.photo_url) {
-                        setPrevImageURL(`${API_BASE_URL}${data_coordinates.photo_url}`);
+                        setPrevImageURL(`${data_coordinates.photo_url}`);
                     }
                     setIsLoading(false);
                 } catch (err) {

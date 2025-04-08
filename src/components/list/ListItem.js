@@ -1,9 +1,9 @@
 import { FaImage } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { API_BASE_URL } from "../../api/client";
 export default function ListItem({ item = {}, to, title, date }) {
+    console.log(item.photo_url);
     const imageToBackground = {
-        backgroundImage: `url(${API_BASE_URL}${item.photo_url})`,
+        backgroundImage: `url(${item.photo_url})`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center'
@@ -18,7 +18,6 @@ export default function ListItem({ item = {}, to, title, date }) {
                 {
                     item.photo_url ?
                         <p className="bg-slate-50 h-[200px]" style={imageToBackground}>
-                            {/* <img src={`${API_BASE_URL}${item.photo_url}`} alt={item.name} className="h-[200px] block m-auto" /> */}
                         </p> :
                         <p className="p-[.5em] bg-slate-400 text-center text-slate-50 h-[200px] flex items-center justify-center">
                             <span className="text-[100px] inline-block">

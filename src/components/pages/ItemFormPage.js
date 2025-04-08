@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from "../../api/client";
 import { getItem, postItem, putItem } from "../../api/itemsAPI";
 import { postImage } from "../../api/imagesAPI";
 import { CustomForm, InputText, RadioButton, Textarea, InputPhoto } from "../common/FormParts";
@@ -35,7 +34,7 @@ export default function ItemFormPage({ mode }) {
                     const data = await getItem(id);
                     setFormData(data);
                     if (data.photo_url) {
-                        setPrevImageURL(`${API_BASE_URL}${data.photo_url}`);
+                        setPrevImageURL(`${data.photo_url}`);
                     }
                     setIsLoading(false);
                 } catch (err) {
@@ -175,7 +174,6 @@ export default function ItemFormPage({ mode }) {
                 />
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <p className="bg-white bg-stone-950"></p>
             <Button type="submit">登録する</Button>
         </CustomForm>
     </>);

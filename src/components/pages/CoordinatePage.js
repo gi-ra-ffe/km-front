@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { FaImage } from "react-icons/fa";
-import { API_BASE_URL } from "../../api/client";
 import { getCoordinate, deleteCoordinate } from "../../api/coordinateAPI";
 import { getCoordinateItems, deleteCoordinateItems } from "../../api/coordinate_itemsAPI";
 import Button, { GrayButton } from "../common/Button";
@@ -63,7 +62,7 @@ export default function Coordinate() {
             {
                 coordinate.photo_url ?
                     <p className="">
-                        <img src={`${API_BASE_URL}${coordinate.photo_url}`} alt={coordinate.name} className="max-h-[320px] block m-auto" />
+                        <img src={`${coordinate.photo_url}`} alt={coordinate.name} className="max-h-[320px] block m-auto" />
                     </p> :
                     <p className="p-[.5em] bg-slate-400 text-center text-slate-50">
                         <span className="text-[100px] inline-block">

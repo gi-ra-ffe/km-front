@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { FaImage } from "react-icons/fa";
-import { API_BASE_URL } from "../../api/client";
 import { deleteItem, deleteItemfromCoordinates, getItem, getCoordinateByItem } from "../../api/itemsAPI";
 import { H2, H3 } from "../layout/Header";
 import Button, { GrayButton } from "../common/Button";
@@ -82,7 +81,7 @@ export default function Items() {
             {
                 item.photo_url ?
                     <p className="">
-                        <img src={`${API_BASE_URL}${item.photo_url}`} alt={item.name} className="max-h-[320px] block m-auto" />
+                        <img src={`${item.photo_url}`} alt={item.name} className="max-h-[320px] block m-auto" />
                     </p> :
                     <p className="p-[.5em] bg-slate-400 text-center text-slate-50">
                         <span className="text-[100px] inline-block">
