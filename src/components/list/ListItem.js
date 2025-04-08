@@ -1,7 +1,6 @@
 import { FaImage } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function ListItem({ item = {}, to, title, date }) {
-    console.log(item.photo_url);
     const imageToBackground = {
         backgroundImage: `url(${item.photo_url})`,
         backgroundSize: 'contain',
