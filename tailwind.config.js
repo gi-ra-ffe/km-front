@@ -1,6 +1,9 @@
 // tailwind.config.js（または tailwind.config.mjs）
-export default {
-    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+module.exports = {
+    content: [
+        "./src/**/*.{js,jsx,ts,tsx}",
+        "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+    ],
     safelist: [
         'bg-red-600',
         'bg-orange-400',
