@@ -312,7 +312,7 @@ export default function ItemForm({ mode }) {
                 />
             </div>
             {error && <ErrorText>{error}</ErrorText>}
-            <Button type="submit">登録する</Button>
+            <Button type="submit">{mode === "edit" ? "編集する" : "登録する"}</Button>
         </CustomForm>
     </>);
 }

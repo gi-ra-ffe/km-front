@@ -174,7 +174,7 @@ export default function ItemFormPage({ mode }) {
                 />
             </div>
             {error && <p className="text-red-500">{error}</p>}
-            <Button type="submit">登録する</Button>
+            <Button type="submit">{mode === "edit" ? "編集する" : "登録する"}</Button>
         </CustomForm>
     </>);
 }

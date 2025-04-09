@@ -5,6 +5,7 @@ import { getCoordinate, deleteCoordinate } from "../../api/coordinateAPI";
 import { getCoordinateItems, deleteCoordinateItems } from "../../api/coordinate_itemsAPI";
 import Button, { GrayButton } from "../common/Button";
 import { H2, H3 } from "../layout/Header";
+import { FooterHasButton } from "../layout/Footer";
 import ItemListItem from "../list/ListItem";
 import ErrorText from "../common/ErrorText";
 
@@ -58,7 +59,7 @@ export default function Coordinate() {
     if (coordinateItemsError) return <div>エラー: {coordinateItemsError.message}</div>;
 
     return (<>
-        <div className="p-[1em] max-w-[calc(900px_+_4em)] m-auto">
+        <div className="p-[1em] max-w-[calc(900px_+_4em)] m-auto mb-[6em]">
             {
                 coordinate.photo_url ?
                     <p className="">
@@ -86,17 +87,19 @@ export default function Coordinate() {
                     }
                 </ul>
             </div>
-            <div className="mt-[.5em]">
-                <H3>メモ</H3>
-                <p>{coordinate.memo}</p>
-            </div>
-            <div className="mt-[1.5em]">
+            {coordinate.memo &&
+                <div className="mt-[.5em]">
+                    <H3>メモ</H3>
+                    <p>{coordinate.memo}</p>
+                </div>
+            }
+            <FooterHasButton>
                 <Link to={"/coordinate/edit/" + id}>
-                    <Button>編集する</Button>
+                    <Button className="!mb-[8px]">編集する</Button>
                 </Link>
                 {deleteError && <ErrorText>{deleteError}</ErrorText>}
                 <GrayButton onClick={handleDelete}>削除する</GrayButton>
-            </div>
+            </FooterHasButton>
         </div>
     </>);
 }

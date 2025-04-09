@@ -1,6 +1,6 @@
-const Button = ({ children, ...props }) => {
+const Button = ({ children, className, ...props }) => {
     return (
-        <button className="w-[100%] py-[8px] bg-sky-600 hover:opacity-50 text-slate-50 rounded-md cursor-pointer mb-[16px]" {...props}>{children}</button>
+        <button className={`w-[100%] py-[8px] bg-sky-600 hover:opacity-50 text-slate-50 rounded-md cursor-pointer mb-[16px] ${className && className}`} {...props}>{children}</button>
     )
 }
 export default Button;
@@ -13,7 +13,7 @@ export const WhiteButton = ({ children, className, ...props }) => {
 
 export const GrayButton = ({ children, ...props }) => {
     return (
-        <button className="w-[100%] py-[8px] hover:opacity-50 text-slate-400 border border-solid border-slate-400 rounded-md cursor-pointer mb-[16px]" {...props}>{children}</button>
+        <button className="w-[100%] py-[8px] hover:opacity-50 text-slate-400 border border-solid border-slate-400 rounded-md cursor-pointer mb-[16px] bg-white" {...props}>{children}</button>
     )
 }
 

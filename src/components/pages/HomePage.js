@@ -4,6 +4,7 @@ import ErrorText from "../common/ErrorText";
 import Button from "../common/Button";
 import CustomLink from "../common/CustomLink";
 import { H2 } from "../layout/Header";
+import { FooterHasButton } from "../layout/Footer";
 import ItemFilter from "../item/ItemFilter";
 import { Link } from "react-router-dom";
 import { getAllItems } from "../../api/itemsAPI";
@@ -106,12 +107,11 @@ export const HomeForUser = ({ username, type, setHomeType }) => {
                     }
                 </section>
             </div>
-
-            <footer className="fixed bottom-[1em] block w-[calc(100%_-_2em)] max-w-[calc(900px_+_4em)] m-auto text-right left-[50%] translate-x-[-50%]">
+            <FooterHasButton>
                 <Link to={"/" + showType + "/new"}>
                     <Button>登録する</Button>
                 </Link>
-            </footer>
+            </FooterHasButton>
         </div>
     );
 }

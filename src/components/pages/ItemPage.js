@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { FaImage } from "react-icons/fa";
 import { deleteItem, deleteItemfromCoordinates, getItem, getCoordinateByItem } from "../../api/itemsAPI";
 import { H2, H3 } from "../layout/Header";
+import { FooterHasButton } from "../layout/Footer";
 import Button, { GrayButton } from "../common/Button";
 import ItemListItem from "../list/ListItem";
 import ErrorText from "../common/ErrorText";
@@ -77,7 +78,7 @@ export default function Items() {
     if (itemError) return <div>エラー: {itemError.message}</div>;
 
     return (<>
-        <div className="p-[1em] max-w-[calc(900px_+_4em)] m-auto max-h-[calc(100vh_-_13em)] overflow-auto">
+        <div className="p-[1em] max-w-[calc(900px_+_4em)] m-auto mb-[6em]">
             {
                 item.photo_url ?
                     <p className="">
@@ -105,13 +106,13 @@ export default function Items() {
                 <p>使用したコーディネートはありません</p>
             )}
 
-            <footer className="fixed bottom-[1em] block w-[calc(100%_-_4em)] max-w-[calc(900px_+_4em)] m-auto text-right">
+            <FooterHasButton>
                 <Link to={"/item/edit/" + id}>
-                    <Button>編集する</Button>
+                    <Button className="!mb-[8px]">編集する</Button>
                 </Link>
                 {deleteError && <ErrorText>{deleteError}</ErrorText>}
                 <GrayButton onClick={handleDeleteItem}>削除する</GrayButton>
-            </footer>
+            </FooterHasButton>
         </div>
     </>);
 }
